@@ -14,11 +14,11 @@ from django.core.validators import URLValidator
 from django.core.exceptions import ValidationError
 
 
-with open('C:/WORK/ITEA_python/project/airport/airbaltic.json') as f:
+with open('airbaltic.json') as f:
     a_data=json.load(f)
-with open('C:/WORK/ITEA_python/project/airport/ryanair.json') as f:
+with open('ryanair.json') as f:
     r_data=json.load(f)
-with open('C:/WORK/ITEA_python/project/airport/wizzair.json') as f:
+with open('wizzair.json') as f:
     w_data=json.load(f)
 
 if not settings.configured:
