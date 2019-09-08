@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Search route</title>
+    <meta charset="UTF-8">
+    <!-- <link rel="stylesheet" href="/someone.css"> -->
+    <style>
+          body{
+            background-image: url(https://kbp.aero/wp-content/uploads/2017/09/plane.jpg);
+            background-repeat: no-repeat;
+            background-size: 100%;
+          }
+          .a, .d {
+            font-size: 20px;
+            font-weight: 100px;
+            text-align-last: center;
+          }
+          
+          div.write{
+            position: absolute;
+            right: 37%;
+            top: 15%;
+          }
+          div.press_button{
+            position: absolute;
+            right: 38%;
+            top: 24%;
+          }
+          
+          div.fone{
+            width: 500px;
+            height: 200px; 
+            text-align: center;
+            font-size: 20px;
+            padding: 20px;
+            font-weight: 700;
+            position: absolute;
+            right: 29%;
+            top: 30%;
+          }
+          #.button{
+            #background-color: rgba(30, 180, 30, 0.562);
+            #width: 150px; 
+            #height: 30px;
+            #font-size: 20px;
+            #color: rgb(55, 0, 255);
+            #border-radius: 8px;
+            #border-color: rgb(2, 196, 2);
+            #transition: border-radius 0.5s ease-in;
+            #transition: background-color 0.5s ease-in;
+            
+          #}
+          #.button:hover{
+            #border-radius: 126px;
+            #background-color: rgb(40, 100, 12)
+          #}
+          p1 {
+            color: magenta;
+          }
+          
+    </style>   
+  </head>
+  <body>
+    
+    <form action="" method="post">
+      {% csrf_token %}
+      <div class="write">
+      <input class='a' type=text name="airsrc" placeholder="write City" required autofocus center>    
+      <input class='d' type=text name="airdest" placeholder="write City" required autofocus>
+      <br>
+    </div>
+      <br>
+      <div class="press_button">
+      <input class="button" type="submit", value="Search" > <input class="button" type="reset" value="Clear"> 
+    </div>
+    <br>
+    </form> 
+    <div class="fone">
+      <p1>{{a}}</p1>
+        {%for k in air_a%}
+           {{"-"}}{{k}}{{"-"}}
+        {%endfor%} 
+      <br>
+
+      <br>
+    <p1>{{r}}</p1>
+      {%for k in air_r%}
+          {{"-"}}{{k}}{{"-"}}
+      {%endfor%}
+      <br>
+
+      <br>
+    <p1>{{w}}</p1>
+      {%for k in air_w%}
+          {{"-"}}{{k}}{{"-"}}
+      {%endfor%}   
+    
+      {{err}}
+    </div>
+    
+  </body>
+</html>
+
+
