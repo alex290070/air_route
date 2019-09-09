@@ -41,19 +41,19 @@ def redirect_view(request, airsrc, airdest):
 # ===== LOAD DICT OF CITY =====
 def load_airbaltic_city(file):
     tmp={}
-    for k, v in file.items():
-        if 'country' and 'code' in v:
-            city= v['city']
-            iata= v['code']
+    for k, i in file.items():
+        if 'country' and 'code' in i:
+            city= i['city']
+            iata= i['code']
             tmp[city] = iata
             tmp[iata] = city
     return tmp
 
 def load_ryanair_city(file):
     tmp={}
-    for v in file.values():
-        for i in v:
-            for k, v, in i.items():
+    for l in file.values():
+        for i in l:
+            for k, l, in i.items():
                 if 'iataCode'and 'cityCode'  in k:
                     iata = i['iataCode']
                     city = i['cityCode']
@@ -80,10 +80,10 @@ def load_wizzair_city(file):
 def airbaltic_direction(file):
     tmp={}
     print('airbaltic data load ...')
-    for _ , v in file.items():
-        if 'destinations' in v:
-            c=v['code']
-            d=v['destinations']
+    for _ , l in file.items():
+        if 'destinations' in l:
+            c=l['code']
+            d=l['destinations']
         ls=[a[0:3] for a, b in d.items()]
         tmp[c]=ls
     print(' ...done')
@@ -92,14 +92,14 @@ def airbaltic_direction(file):
 def ryanair_direction(file):
     tmp={}
     print('ryanair data load...')
-    for v in file.values():
-        for i in v:
-            for k_v, v_v in i.items():
-                if 'iataCode' in k_v:
+    for l in file.values():
+        for i in l:
+            for k1, l1 in i.items():
+                if 'iataCode' in k1:
                     c = i['iataCode']
-                if 'routes' in k_v:
+                if 'routes' in k1:
                     r= i['routes']
-                    g= [i_r.split(':', maxsplit=1) for i_r in r]
+                    g= [i1.split(':', maxsplit=1) for i1 in r]
                     y = [b.split('|')[0] for a, b in g if a == 'airport']
                     tmp[c]=y
     print(' ...done')
@@ -208,22 +208,3 @@ if __name__ == '__main__':
     import sys
     from django.core.management import execute_from_command_line
     execute_from_command_line(sys.argv)
-
-    '''
-    #if airsrc and airdest:
-    airsrc = 'SALZBURG'.title()
-    airdest = 'PALMA'.title()
-    if True:
-        if True:
-            if True: #try:
-
-            u=[]
-            if True: #try:
-                for cities, direction in zip(all_cities, all_direct):
-                    r_c=rewrite_code(direction, airsrc, airdest, cities)
-                    print(r_c)
-                    #r_c_2 = rewrite_code_2(r_c, air_ci)
-                    #h=del_same_city(r_c_2)
-                    #u.append(h)
-
-'''
