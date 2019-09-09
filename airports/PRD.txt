@@ -8,9 +8,9 @@ On web-site input two City-name (start/end travels) in relevfnt form and press b
 Realisation:
 
 1. Load data from json-files 'airbaltic.json', 'ryanair.json', 'wizzair.json' to variable a_data, r_data, w_data
-2. Create dict of Cities to variables use functions : 
+2. Create dict of Cities by using functions : 
    load_airbaltic_city(), load_ryanair_city(), load_wizzair_city()
-3. Create dict of direction for each City of airline use function :
+3. Create dict of direction for each City of airline by using function :
    airbaltic_direction(), ryanair_direction(), wizzair_direction()
 4. Main task: use function index()
 5. Get City-name from web-form (index.html) to variable: airsrc, airdest.
