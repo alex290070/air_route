@@ -173,7 +173,7 @@ def index(request):
     except:
         pass
     if airsrc and airdest:
-        if True: #try:
+        try:
             a_result=calculate_route(a_direct, airsrc, airdest, a_city_dict)
             print('Airbaltic result = ', a_result)
             if a_result is not None:
@@ -193,8 +193,8 @@ def index(request):
             else:
                 w_print = ['Route not found.']
             return render(request, 'index.html', {'air_a': a_print , 'a':'Airbaltic: ','air_r': r_print , 'r':'Ryanair: ','air_w': w_print , 'w':'Wizzair: '})
-        #except:
-        #    return render(request, 'index.html', {'err':'Please enter correct name of city: '+'\"'+airsrc+'\"'+' or '+'\"'+airdest+'\"'+'.'})
+        except:
+            return render(request, 'index.html', {'err':'Please enter correct name of city: '+'\"'+airsrc+'\"'+' or '+'\"'+airdest+'\"'+'.'})
     else:
         return render(request, 'index.html')
 
