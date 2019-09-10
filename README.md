@@ -6,7 +6,7 @@ Project for search short air routing travel.
 This programm find short route between two City.
 For searching are used three famous airline - Airbaltic, Ryanair, Wizzair.
 
-On web-site input two City-name (start/end travels) in relevfnt form and press button 'Search' and take result.
+On web-site input two City-name (start/end travels) in relevamt form, press button 'Search' and take result.
 
 Realisation:
 
